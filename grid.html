@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            display: grid;
+            grid-template-areas: 
+            'header'
+            'main'
+            'footer'
+            ;
+            padding: 20px;
+            grid-gap: 20px;
+            grid-template-rows: min-content auto min-content;
+            max-width: 100%;
+            height: 100vh;
+        }
+        .header{
+            grid-area: header;
+            background-color: rgb(66, 66, 66);
+            max-width: 100%;
+            text-align: center;
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-column-gap: 30px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        .f-logo-img{
+            width: 200px;
+            height: auto;
+        }
+        .main{
+            text-align: center;
+            grid-area: main;
+            background-color: chocolate;
+            max-width: 100%;
+            height: 100vh;
+            display: grid;
+            grid-template-areas:
+            'sec1 aside1'
+            'sec2 aside2'
+            'sec3 .'
+            ;
+            padding: 20px;
+            grid-gap: 20px;
+        }
+        .footer{
+            grid-area: footer;
+            background-color: rgb(66, 66, 66);
+            max-width: 100%;
+            text-align: center;
+            display: grid;
+            grid-template-areas:
+            'nav1 nav2 side'
+            ;
+            padding: 20px 100px;
+            grid-gap: 20px;
+        }
+        .sec1{ 
+            grid-area: sec1;
+            background-color: rgb(192, 212, 213);
+        
+        }
+        .sec2{
+            grid-area: sec2;
+            background-color: cadetblue;
+        }
+        .sec3{
+            grid-area: sec3;
+            background-color: rgb(22, 185, 191);
+        }
+        .aside1{
+            grid-area: aside1;
+            background-color: bisque;
+        }
+        .aside2{
+            grid-area: aside2;
+            background-color: bisque;
+        }
+        .nav1{grid-area: nav1;
+        text-align: left;
+        }
+        .nav2{
+            grid-area: nav2;
+        text-align: left;
+        }
+        .head-nav{}
+        .head-nav>ul{
+            display: flex;
+        }
+        .head-nav>ul>li{
+            list-style-type: none;
+            border: none;
+            border-radius: 10px;
+            box-shadow:inset 5px 5px 10px rgb(71, 69, 69),inset -5px -5px 10px rgb(137, 140, 140) ;
+            margin-right: 30px;
+        }
+        .head-nav>ul>li>a{
+            text-decoration: none;
+            font-size: 25px;
+            padding: 10px;
+            color: white;
+
+        }
+        .nav1>h1,.nav2>h1{
+            font-size: 25px;
+            text-align: center;
+        }
+        .nav1>ul>li,.nav2>ul>li{
+            list-style-type: none;
+            font-size: 20px;
+            color: gray;
+        }
+        .side{
+            grid-area: side;
+            background-color: #ecf0f3;
+            border: 0;
+            border-radius: 10px;
+        }
+        .side>form>h1{
+            font-size: 30px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            color: rgb(65, 65, 65);
+        }
+        .side>form>div>input{
+        width: 80%;
+        border: none;
+        outline: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: rgb(255, 255, 255);
+        background-color: grey;
+        }
+        input::placeholder{
+            color: white;
+        }
+        .side>form>div>button{
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            background-color:  #ecf0f3;
+            box-shadow: inset 5px 5px 10px #e5e8eb, inset -5px -5px 10px#73777b;
+        }
+        .side>form>div>button:hover{
+            box-shadow: inset 5px 5px 10px #73777b, inset -5px -5px 10px #e5e8eb;
+        }
+        .btn-box{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        @media screen and (max-width:576px) {
+            .container{
+                grid-template-areas: 
+            'header'
+            'main'
+            'footer'
+            ;
+            }
+            .header{
+                grid-template-columns: auto;
+            }
+            .main{
+                grid-template-areas:
+            'sec1'
+            'sec2'
+            'sec3'
+            'aside1'
+            'aside2'
+            ;
+            }
+            .footer{
+                grid-template-areas: 
+                'nav1'
+                'nav2'
+                'side'
+                ;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="f-logo">
+                <img class="f-logo-img" src="dF5SId3UHWd.svg" alt="facebook logo image">
+            </div>
+            <nav class="head-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Tutorial</a></li>
+                    <li><a href="#">FFQ</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="main">
+            <section class="sec1"></section>
+            <section class="sec2"></section>
+            <section class="sec3"></section>
+            <aside class="aside1"></aside>
+            <aside class="aside2"></aside>
+        </main>
+        <footer class="footer">
+            <nav class="nav1">
+                <h1>category</h1>
+                <ul>
+                <li>Tanks & spaghettis</li>
+                <li>T-shirt</li>
+                <li>shirt</li>
+                <li>Blouses</li>
+                <li>Dress</li>
+                </ul>
+            </nav>
+            <nav class="nav2">
+                <h1>category</h1>
+                <ul>
+                <li>Tanks & spaghettis</li>
+                <li>T-shirt</li>
+                <li>shirt</li>
+                <li>Blouses</li>
+                <li>Dress</li>
+                </ul>
+            </nav>
+            <div class="side">
+                <form action="">
+                    <h1>LogIn Here</h1>
+                    <div>
+                        <input type="text" placeholder="Username or Phone number" required><br>
+                    <input type="password" placeholder="password" required>
+                    </div>
+                    <div class="btn-box">
+                        <button>LogIn</button>
+                        <button>Sign Up</button>
+                    </div>
+                </form>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
